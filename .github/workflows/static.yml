@@ -1,0 +1,233 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+
+        <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<META name="Abstract" content="BURAKMESE'S Portfolio">
+<META name="Copyright" content="MIT Licance">
+<meta name="description" content="BURAKMESE'S Portfolio">
+<meta http-equiv="content-language" content="tr">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859">
+<style>
+body {
+  font-family: Verdana, serif;
+}
+</style>
+<title>BURAKMESE</title>
+<link rel="stylesheet" href= "style.css">
+</head>
+<body>
+<div id:"header">
+ <div class= "container">
+ <nav> 
+ <img src= "images/logo.png" class="logo">
+ <ul>
+ <li><a href="#home">Home</a></li> 
+ <li><a href="#about">About</a></li> 
+ <li><a href="#services">Services</a></li> 
+ <li><a href="#portfolio">Portfolio</a></li>  
+  </ul>
+  </nav>
+  <div class="header-text">
+  <p>Game Designer</p>
+  <h1>Hi, I'm <span>BURAKMESE</span> </h1>
+    </div>
+  </div>
+  <!-- About Kısmı -->
+<div id="about">
+<div class="container">
+<div class="row">
+<div class="about-col-1">
+<img src="images/about.png">
+</div>
+	   
+<div class="about-col-2">
+ <h1 class="sub-title">About Me<h1>
+ <p>After developing in modding and C# coding in my long career as a Stardew Valley mod maker, I have reached a level where I can produce small C# projects and Level Design projects on my own. I am also developing in Web design. 
+Some of the things I know: C#, C++, CSS, HTML, JS, UNITY, UNREAL ENGINE, TILED and more. </p>
+ 
+ <div class= "tab-titles">
+<p class= "tab-links active-link" onclick="opentab('skills')">Skilss</p>
+<p class= "tab-links" onclick="opentab('experience')">Experience</p>
+<p class= "tab-links" onclick="opentab('education')">Education</p>
+
+</div>
+<div class= "tab-contents active-tab" id="skills">
+
+<ul> 
+<li><span>Unity</span><br>For 2D Games</li>
+<li><span>Unreal Engine</span><br>Blueprint and C++</li>
+<li><span>Front End Developer</span><br>HTML, CSS and Js</li>
+<li><span>Level Designer</span><br>For 2D Games</li>
+</ul>
+</div>
+</div>
+<div class= "tab-contents" id="experience">
+<ul> 
+<li><span>2020-2024</span><br>Bluchick Team Leader</li>
+<li><span>2020-2024</span><br>Stardew Valley Modder</li>
+<li><span>2024-X</span><br>Bluchick Team</li>
+</ul>
+</div>
+</div>
+<div class= "tab-contents" id="education">
+<ul> 
+<li><span>2023-2025</span><br>Sakarya Application Science University</li>
+
+</ul>
+</div>
+</div>
+<!------Services Kısmı------>
+<div id="services">
+  <div class="container">
+    <h1 class="sub-title">Services</h1>
+    <div class="services-list">
+      <div>
+        <h2>Web Design</h2>
+        <p>I can create websites for your business or for you..</p>
+        <a href="#">learn more</a>
+      </div>
+      <div>
+        <h2>Level Design</h2>
+        <p>I'm very good at making maps for 2D games, especially Pixel games.</p>
+        <a href="#">learn more</a>
+      </div>
+      <div>
+        <h2>Game Design</h2>
+        <p>I am constantly improving myself to be able to work on the art or development side of any game project.</p>
+        <a href="#">learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!------Portfolio Kısmı------>
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class= "work-list">
+		<div class= "work">
+		<h5>Stardew Kids Expansion Mod For Stardew Valley </h5>
+		<img src= "images/SKE.png">
+		</div>
+		<div class= "work">
+		<img src= "images/Work.png">
+		</div>
+		<div class= "work">
+		<img src= "images/Work2.png">
+		</div>
+		
+		
+		
+		
+		</div>	
+	</div>
+</div>
+
+<script>
+
+  var tablinks = document.getElementsByClassName("tab-links");
+  var tabcontents = document.getElementsByClassName("tab-contents");
+  
+  
+	function opentab(tabname){
+	for(tablink of tablinks){
+		tablink.classList.remove("active-link");
+}  
+		for(tabcontent of tabcontents){
+		tabcontent.classList.remove("active-tab");
+}  
+	event.currentTarget.classList.add("active-link");
+	document.getElementById(tabname).classList.add("active-tab");
+	}  
+
+</script>
+<!-- Page Footer Kısmı -->
+   <footer>
+  <p>Author: BURAKMESE</p>
+  <p><a href="mailto:bmese4147@gmail.com">bmese4147@gmail.com</a></p>
+</footer>
+    <!-- End of page footer -->
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+<script>
+  /* Connect Kısmı Mail Olarak Eklendi Formspree Kullanılıyor. */
+  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+  /* customize formbutton below*/     
+  formbutton("create", {
+    action: "https://formspree.io/f/mzbnwjrq",
+    title: "How can we help?",
+    fields: [
+      { 
+        type: "email", 
+        label: "Email:", 
+        name: "email",
+        required: true,
+        placeholder: "your@email.com"
+      },
+      {
+        type: "textarea",
+        label: "Message:",
+        name: "message",
+        placeholder: "What's on your mind?",
+      },
+      { type: "submit" }      
+    ],
+    styles: {
+      title: {
+        backgroundColor: "gray"
+      },
+      button: {
+        backgroundColor: "gray"
+      }
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
+
